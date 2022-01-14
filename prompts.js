@@ -1,20 +1,5 @@
 const inquirer = require('inquirer');
 
-const optionPrompt = () => {
-    return inquirer.prompt([
-        {
-            type: 'confirm',
-            name: 'addEngineer',
-            message: 'Would you like to add an Engineer to your team?'
-        },
-        {
-            type: 'confirm',
-            name: 'addIntern',
-            message: 'Would you like to add an Intern to your team?'
-        }
-    ])
-}
-
 const managerPrompts = () => {
     return inquirer.prompt([
         {
@@ -73,6 +58,19 @@ const managerPrompts = () => {
     ])
 }
 
-
+const optionPrompt = () => {
+    return inquirer.prompt([
+        {
+            type: 'confirm',
+            name: 'addEngineer',
+            message: 'Would you like to add an Engineer to your team?'
+        },
+        {
+            type: 'confirm',
+            name: 'addIntern',
+            message: 'Would you like to add an Intern to your team?'
+        }
+    ])
+}
 
 module.exports = { managerPrompts, optionPrompt }
