@@ -1,5 +1,4 @@
 const templateData = require('./src/page-template')
-// const {managerPrompts, engineerOptionPrompt, internOptionPrompt, engineerPrompts, internPrompts} = require('./prompts')
 const inquirer = require('inquirer')
 
 const managerPrompts = () => {
