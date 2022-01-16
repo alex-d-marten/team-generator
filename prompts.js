@@ -58,22 +58,33 @@ const managerPrompts = () => {
     ])
 }
 
-const optionPrompt = () => {
+const engineerOptionPrompt = () => {
     return inquirer.prompt([
         {
             type: 'confirm',
             name: 'addEngineer',
-            message: 'Would you like to add an Engineer to your team?'
-        },
-        {
-            type: 'confirm',
-            name: 'addIntern',
-            message: 'Would you like to add an Intern to your team?'
+            message: 'Would you like to add an Engineer to your team?',
+            default: false
         }
     ])
 }
 
-const engineerPrompts = () => {
+const internOptionPrompt = () => {
+    return inquirer.prompt([
+        {
+            type: 'confirm',
+            name: 'addIntern',
+            message: 'Would you like to add an Intern to your team?',
+            default: false
+        }
+    ])
+}
+
+const engineerPrompts = engineerPromptData => {
+    if(!engineerPromptData.engineers) {
+        engineerPromptData.engineers = [];
+    }
+
     return inquirer.prompt([
         {
            type: 'input',
@@ -126,8 +137,22 @@ const engineerPrompts = () => {
                     return false
                 }
             }
+        },
+        {
+            type: 'confirm',
+            name: 'confirmAddAnotherEngineer',
+            message: 'Would you like to add another engineer?',
+            default: false
         }
     ])
+    .then(engineerAnswers => {
+        engineerPromptData.engineers.push(engineerAnswers);
+        if(engineerAnswers.confirmAddAnotherEngineer) {
+            return engineerPrompts(engineerPromptData)
+        } else {
+            return engineerPromptData
+        }
+    })
 }
 
 const internPrompts = () => {
@@ -187,4 +212,4 @@ const internPrompts = () => {
     ])
 }
 
-module.exports = { managerPrompts, optionPrompt, engineerPrompts, internPrompts }
+module.exports = { managerPrompts, engineerOptionPrompt, internOptionPrompt, engineerPrompts, internPrompts }

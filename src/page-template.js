@@ -5,3 +5,8 @@
 
 
 // create interns blocks
+
+
+module.exports = templateData => {
+    const { engineers, interns, manager } = templateData
+}
