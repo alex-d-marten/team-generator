@@ -73,4 +73,118 @@ const optionPrompt = () => {
     ])
 }
 
-module.exports = { managerPrompts, optionPrompt }
+const engineerPrompts = () => {
+    return inquirer.prompt([
+        {
+           type: 'input',
+           name: 'engineerName',
+           message: "What is the name of the Engineer?",
+           validate: engineerNameInput => {
+               if(engineerNameInput) {
+                   return true
+               } else {
+                   console.log('Please enter a name!')
+                   return false
+               }
+           }
+        },
+        {
+            type: 'input',
+            name: 'engineerID',
+            message: "What is the engineer's ID?",
+            validate: engineerIDInput => {
+                if(engineerIDInput) {
+                    return true
+                } else {
+                    console.log('Please enter an ID!')
+                    return false
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'engineerEmail',
+            message: "What is the email of the engineer?",
+            validate: engineerEmailInput => {
+                if(engineerEmailInput) {
+                    return true
+                } else {
+                    console.log("Please enter an email for the engineer!")
+                    return false
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'engineerGithub',
+            message: 'What is the GitHub of the engineer?',
+            validate: engineerGithubInput => {
+                if(engineerGithubInput) {
+                    return true
+                } else {
+                    console.log("Please enter a GitHub for the engineer!")
+                    return false
+                }
+            }
+        }
+    ])
+}
+
+const internPrompts = () => {
+    return inquirer.prompt([
+        {
+           type: 'input',
+           name: 'internName',
+           message: "What is the name of the Intern?",
+           validate: internNameInput => {
+               if(internNameInput) {
+                   return true
+               } else {
+                   console.log('Please enter a name!')
+                   return false
+               }
+           }
+        },
+        {
+            type: 'input',
+            name: 'internID',
+            message: "What is the intern's ID?",
+            validate: internIDInput => {
+                if(internIDInput) {
+                    return true
+                } else {
+                    console.log('Please enter an ID!')
+                    return false
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'internEmail',
+            message: "What is the email of the intern?",
+            validate: internEmailInput => {
+                if(internEmailInput) {
+                    return true
+                } else {
+                    console.log("Please enter an email for the intern!")
+                    return false
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'internSchool',
+            message: 'What school does the intern attend?',
+            validate: internSchoolInput => {
+                if(internSchoolInput) {
+                    return true
+                } else {
+                    console.log("Please enter the school the intern attends!")
+                    return false
+                }
+            }
+        }
+    ])
+}
+
+module.exports = { managerPrompts, optionPrompt, engineerPrompts, internPrompts }
