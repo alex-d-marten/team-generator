@@ -229,18 +229,3 @@ const internPrompts = promptData => {
 managerPrompts()
     .then(engineerPrompts)
     .then(internPrompts)
-    // .then(promptData => {
-    //     if(promptData) {
-    //         engineerPrompts()
-    //     }
-    // })
-
-// engineerOptionPrompt()
-//     .then(promptData => {
-//         if(promptData) {
-//             console.log('You opted to add an engineer')
-//             return engineerPrompts()
-//         } else {
-//             console.log('You opted to not add an engineer!')
-//         }
-//     })
