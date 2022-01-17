@@ -61,9 +61,7 @@ const generateIntern = internData => {
     }
 
     const internHTML = internArr.map((element) => {
-        console.log(element)
         const intern = new Intern(element.internName, element.internID, element.internEmail, element.internSchool)
-        console.log(intern.getName())
         return `
             <div class="col bg-light shadow m-2 p-0">
                 <div class="bg-primary text-light p-2">
