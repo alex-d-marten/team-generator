@@ -14,7 +14,7 @@ const generateManager = managerData => {
             </div>
             <div class="bg-white mx-3 my-5">
               <p class="border mb-0 p-2">ID: ${manager.getId()}</p>
-              <p class="border mb-0 p-2">Email: ${manager.getEmail()}</p>
+              <p class="border mb-0 p-2">Email: <a href="mailto:${manager.getEmail()}" target="_blank">${manager.getEmail()}</a></p>
               <p class="border mb-0 p-2">Office Number: ${manager.getOfficeNumber()}</p>
             </div>
           </div>
@@ -37,8 +37,8 @@ const generateEngineer = engineerData => {
                 </div>
                 <div class="bg-white mx-3 my-5">
                     <p class="border mb-0 p-2">ID: ${engineer.getId()}</p>
-                    <p class="border mb-0 p-2">Email: ${engineer.getEmail()}</p>
-                    <p class="border mb-0 p-2">Github: ${engineer.getGithub()}</p>
+                    <p class="border mb-0 p-2">Email: <a href="mailto:${engineer.getEmail()}" target="_blank">${engineer.getEmail()}</a></p>
+                    <p class="border mb-0 p-2">Github: <a href="https://github.com/${engineer.getGithub()}" target="_blank">${engineer.getGithub()}</a></p>
                 </div>
             </div>
     `
@@ -67,7 +67,7 @@ const generateIntern = internData => {
                 </div>
                 <div class="bg-white mx-3 my-5">
                     <p class="border mb-0 p-2">ID: ${intern.getId()}</p>
-                    <p class="border mb-0 p-2">Email: ${intern.getEmail()}</p>
+                    <p class="border mb-0 p-2">Email: <a href="mailto:${intern.getEmail()}" target="_blank">${intern.getEmail()}</a></p>
                     <p class="border mb-0 p-2">Github: ${intern.getSchool()}</p>
                 </div>
             </div>
