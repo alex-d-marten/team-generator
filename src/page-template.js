@@ -1,7 +1,9 @@
+// import required modules
 const Manager = require('../lib/Manager')
 const Engineer = require('../lib/Engineer')
 const Intern = require('../lib/Intern');
 
+// function to generate the manager content. We are using the Manager class here to get the values, html template is returned as a result
 const generateManager = managerData => {
     const manager = new Manager(managerData.managerName, managerData.managerID, managerData.managerEmail, managerData.managerOfficeNumber);
     return `
@@ -21,12 +23,15 @@ const generateManager = managerData => {
     `
 }
 
+// function to generate the engineer content. The Engineer class is being used here to make a new Engineer each time if multiple are present. 
 const generateEngineer = engineerData => {
+    // declare array here for cleaner looking code
     const engineerArr = engineerData.engineers;
     if(!engineerArr) {
         return ''
     }
 
+    // generate the html for the engineer and save it
     const engineerHTML = engineerArr.map((element) => {
         const engineer = new Engineer(element.engineerName, element.engineerID, element.engineerEmail, element.engineerGithub)
         return `
@@ -42,12 +47,12 @@ const generateEngineer = engineerData => {
                 </div>
             </div>
     `
+    // need this join or else will have floating commas on html
     }).join('')
-    // engineerHTML = engineerHTML.replace(',', '')
     return engineerHTML;
 }
 
-// create interns blocks
+// function to generate the intern content. The Intern class is being used here to make a new Intern each time if multiple are present. 
 const generateIntern = internData => {
     const internArr = internData.interns;
 
@@ -68,12 +73,11 @@ const generateIntern = internData => {
                 <div class="bg-white mx-3 my-5">
                     <p class="border mb-0 p-2">ID: ${intern.getId()}</p>
                     <p class="border mb-0 p-2">Email: <a href="mailto:${intern.getEmail()}" target="_blank">${intern.getEmail()}</a></p>
-                    <p class="border mb-0 p-2">Github: ${intern.getSchool()}</p>
+                    <p class="border mb-0 p-2">School: ${intern.getSchool()}</p>
                 </div>
             </div>
     `
     }).join('')
-    // engineerHTML = engineerHTML.replace(',', '')
     return internHTML;
 }
 
